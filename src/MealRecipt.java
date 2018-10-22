@@ -4,6 +4,7 @@
  *
  */
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class MealRecipt 
 {
@@ -11,6 +12,7 @@ public class MealRecipt
 	public static void main(String[] args) 
 	{
 		Scanner user = new Scanner(System.in);
+		DecimalFormat format = new DecimalFormat("##.00");
 		System.out.println("Tax and Tip Calculator: ");
 		System.out.print("Please enter the name of your appetizer: ");
 		String app = user.nextLine();
@@ -36,6 +38,11 @@ public class MealRecipt
 		double tip =  tipPercent*subtotal;
 		double total = subtotal+tax+tip;
 		double tipPer = tipPercent*100;
+		
+		double roundSubtotal = Math.round(subtotal*100)/100;
+		double roundTax = Math.round(tax*100)/100;
+		double roundTip = Math.round(tip*100)/100;
+		double roundTotal = Math.round(total*100)/100;
 		
 		System.out.println("\nItem:      Price:");
 		System.out.println(app + "      $" + appPrice);
